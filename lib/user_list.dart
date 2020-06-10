@@ -1,4 +1,4 @@
-import 'dart:async';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutterstream/user_model.dart';
@@ -13,26 +13,14 @@ class UserList extends StatefulWidget {
 
 class _UserListState extends State<UserList> {
 
-  UserProvider _userProvider;
   List<User> userModel;
-
-
-  Stream getUser()async*{
-    _userProvider=Provider.of<UserProvider>(context,listen: false);
-    await _userProvider.getUsers().then((value) =>
-        userModel=value
-    );
-    yield userModel;
-
-  }
-
-
   @override
   Widget build(BuildContext context) {
+    final userProvider=Provider.of<UserProvider>(context);
     return Scaffold(
         appBar: AppBar(),
         body:StreamBuilder(
-            stream: getUser(),
+            stream: userProvider.getUsers(),
             builder: (context, snapshot){
               if(snapshot.hasError)
                 return Text("hey there is some error");

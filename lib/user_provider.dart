@@ -11,7 +11,7 @@ class UserProvider extends BaseProvider {
   String error;
 
 
-  Future getUsers() async{
+  Stream getUsers() async*{
     this.setState(ViewState.Loading);
     try{
       var res=await _userService.getUsers();
@@ -21,6 +21,6 @@ class UserProvider extends BaseProvider {
       userModel=null;
     }
     this.setState(ViewState.Idle);
-    return userModel;
+    yield userModel;
   }
 }
