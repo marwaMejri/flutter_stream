@@ -2,8 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class BaseService{
-
+class BaseService {
   @protected
   Future getWS({
     @required String uri,
@@ -19,10 +18,11 @@ class BaseService{
         });
         _url = _url.substring(0, _url.length - 2);
       }
-      http.Response response = await http.get(_url, headers: headers).timeout(Duration(seconds: 30));
+      http.Response response =
+          await http.get(_url, headers: headers).timeout(Duration(seconds: 30));
       return response.statusCode >= 200 && response.statusCode < 300
-          ?response
-          :throw Exception('Failed to load post');
+          ? response
+          : throw Exception('Failed to load post');
     } on TimeoutException catch (timeOutExceptionError) {
       print(timeOutExceptionError);
     } on Exception catch (error) {

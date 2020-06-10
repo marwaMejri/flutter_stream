@@ -10,16 +10,17 @@ class UserProvider extends BaseProvider {
   List<User> userModel;
   String error;
 
+
   Future getUsers() async{
     this.setState(ViewState.Loading);
-   try{
-     var res=await _userService.getUsers();
-     userModel=res.user;
-   }catch(Error){
-     error=Error;
-     userModel=null;
-   }
-   this.setState(ViewState.Idle);
-   return userModel;
+    try{
+      var res=await _userService.getUsers();
+      userModel=res.user;
+    }catch(Error){
+      error=Error.toString();
+      userModel=null;
+    }
+    this.setState(ViewState.Idle);
+    return userModel;
   }
 }
