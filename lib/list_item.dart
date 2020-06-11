@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterstream/user_model.dart';
 
 class ListItem extends StatelessWidget {
+
   final User user;
 
   const ListItem({@required this.user});
@@ -12,8 +13,8 @@ class ListItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          color: Colors.blue,
-          width: 100,
+          color: Colors.amberAccent,
+          width: MediaQuery.of(context).size.width,
           height: 100,
           child: Text(
               user.username

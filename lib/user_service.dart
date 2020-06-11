@@ -4,7 +4,8 @@ import 'package:flutterstream/base_service.dart';
 import 'package:flutterstream/user_model.dart';
 
 class UserService extends BaseService {
-  Future getUsers() async {
+
+  Stream<UserModel> getUsers() async* {
     var value;
     final response = await this.getWS(uri: 'users');
     try {
@@ -14,6 +15,6 @@ class UserService extends BaseService {
     } catch (error) {
       value = error;
     }
-    return value;
+    yield value;
   }
 }
