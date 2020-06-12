@@ -2,8 +2,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutterstream/list_item.dart';
-import 'package:flutterstream/user_provider.dart';
+import 'package:flutterstream/providers/user_provider.dart';
+import 'package:flutterstream/ui/first_screen/list_item.dart';
 import 'package:provider/provider.dart';
 
 

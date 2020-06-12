@@ -1,13 +1,16 @@
 import 'dart:async';
-import 'package:flutterstream/base_provider.dart';
-import 'package:flutterstream/user_service.dart';
-import 'package:flutterstream/view_state.dart';
+import 'package:flutterstream/enums/view_state.dart';
+import 'package:flutterstream/providers/base_provider.dart';
+import 'file:///C:/Users/marwa.mejri/AndroidStudioProjects/flutterstream/lib/services/user_service.dart';
 
-class UserProvider extends BaseProvider {
+
+class UserProvider extends BaseProvider{
+
 
   UserService _userService=UserService();
   String error;
   StreamController streamController=StreamController();
+
 
   Stream getUsers()  {
     this.setState(ViewState.Loading);
@@ -15,10 +18,13 @@ class UserProvider extends BaseProvider {
     res.listen((data) {
       if(!streamController.isClosed)
         streamController.add(data.user);
+      this.disposeController(streamController);
     },onError: (error){
         error=error.toString();
         if(!streamController.isClosed)
         streamController.add(error);
+        this.disposeController(streamController);
+
     }
     );
     this.setState(ViewState.Idle);

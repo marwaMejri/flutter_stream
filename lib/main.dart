@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstream/user_list.dart';
-import 'package:flutterstream/user_provider.dart';
+import 'package:flutterstream/providers/user_provider.dart';
+import 'package:flutterstream/ui/first_screen/user_list.dart';
 import 'package:provider/provider.dart';
 
 

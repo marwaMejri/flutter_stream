@@ -1,7 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutterstream/base_service.dart';
-import 'package:flutterstream/user_model.dart';
+import 'package:flutterstream/models/user_model.dart';
+import 'package:flutterstream/services/base_service.dart';
+
+
 
 class UserService extends BaseService {
 

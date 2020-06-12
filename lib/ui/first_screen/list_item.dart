@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstream/user_model.dart';
+import 'package:flutterstream/models/user_model.dart';
 
 class ListItem extends StatelessWidget {
 
