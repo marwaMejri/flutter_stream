@@ -14,11 +14,17 @@ class UserList extends StatefulWidget {
 
 class _UserListState extends State<UserList> {
 
+  UserProvider userProvider;
 
+@override
+  void dispose() {
+    super.dispose();
+    userProvider.streamController.close();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final userProvider=Provider.of<UserProvider>(context);
+    userProvider=Provider.of<UserProvider>(context);
     return Scaffold(
         appBar: AppBar(),
         body:StreamBuilder(

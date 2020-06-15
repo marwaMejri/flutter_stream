@@ -7,6 +7,7 @@ import 'file:///C:/Users/marwa.mejri/AndroidStudioProjects/flutterstream/lib/ser
 class UserProvider extends BaseProvider{
 
 
+
   UserService _userService=UserService();
   String _error;
 
@@ -20,17 +21,15 @@ class UserProvider extends BaseProvider{
     res.listen((data) {
       if(!streamController.isClosed)
         streamController.add(data.user);
-      this.disposeController(streamController);
     },onError: (error){
         _error=error.toString();
         if(!streamController.isClosed)
         streamController.add(_error);
-        this.disposeController(streamController);
-
     }
     );
     this.setState(ViewState.Idle);
     return streamController.stream;
   }
+
 
 }
