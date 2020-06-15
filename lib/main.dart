@@ -27,7 +27,6 @@ class _MyAppState extends State<MyApp> {
           home: UserList(),
         )
 
-
     );
   }
 }

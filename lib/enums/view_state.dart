@@ -2,3 +2,4 @@ enum ViewState {
   Idle,
   Loading,
 }
+

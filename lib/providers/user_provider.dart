@@ -8,9 +8,11 @@ class UserProvider extends BaseProvider{
 
 
   UserService _userService=UserService();
-  String error;
-  StreamController streamController=StreamController();
+  String _error;
 
+
+  String get error => _error;
+  StreamController streamController=StreamController();
 
   Stream getUsers()  {
     this.setState(ViewState.Loading);
@@ -20,9 +22,9 @@ class UserProvider extends BaseProvider{
         streamController.add(data.user);
       this.disposeController(streamController);
     },onError: (error){
-        error=error.toString();
+        _error=error.toString();
         if(!streamController.isClosed)
-        streamController.add(error);
+        streamController.add(_error);
         this.disposeController(streamController);
 
     }

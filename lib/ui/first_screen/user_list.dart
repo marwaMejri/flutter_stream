@@ -24,14 +24,14 @@ class _UserListState extends State<UserList> {
         body:StreamBuilder(
             stream:userProvider.getUsers(),
             builder: (context, snapshot){
-              if(snapshot.hasError)
-                return Text("hey there is some error");
-              else if (snapshot.connectionState == ConnectionState.waiting)
+              if (snapshot.connectionState == ConnectionState.waiting)
                 return CircularProgressIndicator();
+              else if(userProvider.error!=null)
+                return Text(userProvider.error);
               return ListView.builder(
-                  itemBuilder: (context, index){
-                    return ListItem(user: snapshot.data[index]);
-                  },
+                itemBuilder: (context, index){
+                  return ListItem(user: snapshot.data[index]);
+                },
                 itemCount: snapshot.data.length,
               );
             },
