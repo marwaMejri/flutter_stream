@@ -18,12 +18,12 @@ class ConnectionFailedItem extends StatelessWidget {
 
       ),
       contentTextStyle: TextStyle(
-        fontSize: 19,
-        fontWeight: FontWeight.w500,
-        color: Colors.black
+          fontSize: 19,
+          fontWeight: FontWeight.w400,
+          color: Colors.black
       ),
 
-      content: Text("Please check internet connection"),
+      content: Text("Please check Internet connection"),
     );
   }
 }
