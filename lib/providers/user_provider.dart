@@ -13,9 +13,10 @@ class UserProvider extends BaseProvider{
 
 
   String get error => _error;
-  StreamController streamController=StreamController();
 
-  Stream getUsers()  {
+  StreamController streamController=StreamController.broadcast();
+
+  Stream getUsers() {
     this.setState(ViewState.Loading);
     var res=_userService.getUsers();
     res.listen((data) {
