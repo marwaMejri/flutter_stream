@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterstream/models/user_model.dart';
 
@@ -13,15 +14,50 @@ class ListItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          color: Colors.amberAccent,
+          padding: EdgeInsets.only(left: 10),
           width: MediaQuery.of(context).size.width,
-          height: 100,
-          child: Text(
-              user.username
-          ),
+          height: 75,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+               Row(
+                 children: <Widget>[
+                   Text(
+                       "UserName: ",
+                     style: TextStyle(
+                       fontSize: 20
+                     ),
+                   ),
+                   Text(
+                       user.username,
+                     style: TextStyle(
+                         fontSize: 20
+                     ),
+                   ),
+                 ],
+               ),
+              Row(
+                children: <Widget>[
+                  Text(
+                      "Email: ",
+                    style: TextStyle(
+                        fontSize: 20
+                    ),
+                  ),
+                  Text(
+                      user.email,
+                    style: TextStyle(
+                        fontSize: 20
+                    ),
+                  ),
+                ],
+              )
+            ],
+          )
         ),
         Divider(
-          height: 5,
+          height: 3,
+          color: Colors.black,
         ),
       ],
     );
