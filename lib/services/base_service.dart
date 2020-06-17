@@ -26,13 +26,17 @@ class BaseService {
         _url = _url.substring(0, _url.length - 2);
       }
       http.Response response =
-          await http.get(_url, headers: headers).timeout(Duration(seconds: 30));
+          await http.get(_url, headers: headers);
       responseJson = _returnResponse(response);
-    } on SocketException {
-      throw FetchDataException("No internet connection");
-    }on TimeoutException {
-      throw FetchDataException("Time out exception");
     }
+    on SocketException {
+      throw FetchDataException("No internet connection");
+    }
+
+//    on TimeoutException {
+//      throw FetchDataException("Time out exception");
+//    }
+
     return responseJson;
   }
 

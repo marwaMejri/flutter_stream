@@ -8,6 +8,7 @@ import 'package:flutterstream/services/base_service.dart';
 class UserService extends BaseService {
 
   Stream<UserModel> getUsers() async* {
+
     var value;
     final response = await this.getWS(uri: 'users');
     try {

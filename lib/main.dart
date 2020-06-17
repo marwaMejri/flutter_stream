@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstream/enums/connectivity_status.dart';
 import 'package:flutterstream/providers/user_provider.dart';
+import 'package:flutterstream/services/connectivity_service.dart';
 import 'package:flutterstream/ui/first_screen/user_list.dart';
 import 'package:provider/provider.dart';
 
@@ -23,8 +25,11 @@ class _MyAppState extends State<MyApp> {
             create: (_) => UserProvider(),
           ),
         ],
-        child: MaterialApp(
-          home: UserList(),
+        child: StreamProvider<ConnectivityStatus>.value(
+          value: ConnectivityService().connectionStatusController.stream,
+          child: MaterialApp(
+            home: UserList(),
+          ),
         )
 
     );
